@@ -1,0 +1,1 @@
+[{"model": "api.users", "pk": 1, "fields": {"username": "user_1", "password": "12345", "can_json": true, "can_ui": false}}, {"model": "api.users", "pk": 2, "fields": {"username": "user_2", "password": "12345", "can_json": true, "can_ui": false}}, {"model": "api.users", "pk": 3, "fields": {"username": "user_3", "password": "12345", "can_json": true, "can_ui": true}}]

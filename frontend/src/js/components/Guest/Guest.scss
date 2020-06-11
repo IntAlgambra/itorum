@@ -1,0 +1,33 @@
+.guest {
+    &__container {
+        max-width: 600px;
+        margin: 0 auto;
+    };
+    &__week-select {
+        display: grid;
+        grid-template-columns: 4fr 8fr;
+        align-items: center;
+        margin: 25px;
+        label {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #273849;
+            text-transform: uppercase;
+        }
+    };
+    &__orders-row {
+        display: grid;
+        grid-template-columns: 2fr 8fr 2fr;
+        grid-column-gap: 10px;
+        margin-bottom: 25px;
+        &:first-child {
+            margin-top: 25px;
+            p {
+                text-transform: uppercase;
+                font-size: 1.5rem;
+                font-weight: bold;
+                color: #273849;
+            }
+        }
+    }
+}

@@ -1,0 +1,14 @@
+.add-order {
+    &__input {
+        display: grid;
+        grid-template-columns: 4fr 8fr;
+        align-items: center;
+        margin-bottom: 15px;
+        label {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #273849;
+            text-transform: uppercase;
+        }
+    }
+}
