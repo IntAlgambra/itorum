@@ -8,8 +8,6 @@ def add_users():
         pk = i
         username = 'user_{}'.format(i)
         password = '12345'
-        can_json = random.choice([True, False])
-        can_ui = random.choice([True, False])
         users.append(
             {
                 'model': 'api.users',
@@ -17,11 +15,13 @@ def add_users():
                 'fields': {
                     'username': username,
                     'password': password,
-                    'can_json': can_json,
-                    'can_ui': can_ui
+                    'can_json': True,
+                    'can_ui': True
                 }
             }
         )
+    users[0]['can_ui'] = False
+    users[1]['can_json'] = False
     return users
 
 def add_customers():
