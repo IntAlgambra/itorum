@@ -40,6 +40,7 @@ class Dashboard extends React.Component {
         this.onDeleteOrder = this.onDeleteOrder.bind(this);
         this.onAddOrderHandler = this.onAddOrderHandler.bind(this);
         this.onLogOut = this.onLogOut.bind(this);
+        this.onUpdateOrders = this.onUpdateOrders.bind(this)
     }
 
     async componentDidMount() {
@@ -145,6 +146,23 @@ class Dashboard extends React.Component {
         }
     }
 
+    async onUpdateOrders() {
+        const authString = `${this.props.login}:${this.props.password}`;
+        const authStringBase64 = Base64.encode(authString);
+        const responce = await fetch('api/orders', {
+            headers: {
+                'Authorization': `Basic ${authStringBase64}`
+            }
+        });
+        const data = await responce.json();
+        if (responce.status === 200) {
+            this.setState({
+                ...this.state,
+                orders: data,
+            })
+        }
+    }
+
     renderOrder(order) {
         return (
             <div className="order card" key={order.id}>
@@ -208,7 +226,10 @@ class Dashboard extends React.Component {
         const contentToLoad = () => {
             return (
                 <div style={contentStyle} className='dashboard__content'>
-                    <AddOrderForm classes='dashboard__order-form' customers={this.state.customers}></AddOrderForm>
+                    <AddOrderForm
+                        classes='dashboard__order-form'
+                        customers={this.state.customers}
+                        onAddOrderHandler={this.onUpdateOrders}></AddOrderForm>
                     {selectCustomerBlock()}
                     {orders()}
                     <div className="dashboard__pagination">

@@ -56,6 +56,7 @@ class AddOrderForm extends React.Component {
             this.setState({
                 price: ''
             })
+            this.props.onAddOrderHandler();
         }
     }
 
